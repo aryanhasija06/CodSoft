@@ -1,0 +1,46 @@
+package Day1;
+import java.util.*;
+public class NumberGame {
+	public static void main(String[] args){
+		Scanner scn = new Scanner(System.in);
+		Random random = new Random();
+		//Option for multiple rounds
+		boolean nextround = true;
+		//Taking counts for Score.
+		int score=0;
+		while(nextround!=false) {
+			//Generating Random Numbers
+			boolean ans = false;
+			int num  = 1+random.nextInt(100);
+			// Setting up limit of guesses
+			int limit=10;
+			while(ans != true && limit>0) {
+				limit-=1;
+				//Asking the user for a guess
+				System.out.print("Enter your guess for the number: ");
+				int user = scn.nextInt();
+				// Will check whether the guess is correct or not.
+				if(user==num) {
+					ans = true;
+					score+=1;
+					System.out.println("Your guess is correct");
+					break;
+	            }else if(user>num) {
+	        	    System.out.println("Your guess is too high. Try another one.");
+	        	}else if(user<num) {
+	            	System.out.println("Your guess is too low. Try another one.");
+	            }
+				System.out.println("Number of limits left: "+limit);
+			}
+			System.out.println("Score: "+score);
+			System.out.print("Do you want to play again?(Y/N): ");
+			char reply = scn.next().charAt(0);
+			if(reply=='Y') {
+				System.out.println("Starting new game......");
+			}else if(reply=='N'){
+				nextround = false;
+			}
+		}
+        scn.close();
+	}
+}
