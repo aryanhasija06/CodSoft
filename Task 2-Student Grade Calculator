@@ -1,0 +1,40 @@
+package Day2;
+import java.util.*;
+public class StudentGradeCalculator {
+
+	public static void main(String[] args) {
+		Scanner scn = new Scanner(System.in);
+		int n = 5;
+		//Assuming there are 5 subjects namely Physics, Chemistry, Mathematics, English and CS
+		System.out.print("Enter marks for Physics: ");		
+		int sub1 = scn.nextInt();
+		System.out.print("Enter marks for Chemistry: ");		
+		int sub2 = scn.nextInt();
+		System.out.print("Enter marks for Mathematics: ");		
+		int sub3 = scn.nextInt();
+		System.out.print("Enter marks for English: ");		
+		int sub4 = scn.nextInt();
+		System.out.print("Enter marks for CS: ");		
+		int sub5 = scn.nextInt();
+		int total = sub1 + sub2 + sub3 + sub4 + sub5 ; 
+		double avgper = (double)total/(double)n;
+		// Classifying O for 90-100 A for 80-90 B for 60-80 C for 40-60 D for 20-40 and F for 0-20
+		char grade;
+		if(avgper>=90 && avgper<=100) {
+			grade = 'O';
+		}else if(avgper>=80 && avgper<=90) {
+			grade = 'A';
+		}else if(avgper>=60 && avgper<=80) {
+			grade = 'B';
+		}else if(avgper>=40 && avgper<=60) {
+			grade = 'C';
+		}else if(avgper>=20 && avgper<=40) {
+			grade = 'D';
+		}else {
+			grade = 'F';
+		}
+		System.out.println("The total marks of the student is: "+ total +" \nThe average percentage of the student: "+ avgper +"%\nThe grade of the student: "+ grade);
+	}
+
+}
+// There is one more way to do this question too by using an array where length of array can vary as the number of subjects
