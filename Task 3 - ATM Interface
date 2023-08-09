@@ -1,0 +1,57 @@
+package Day3;
+
+import java.util.Scanner;
+public class BankAccount {
+	public static double balance=1000.0; //initial balance is assumed to be 1000 for this account.
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	}
+	public static double ATM() {
+		return BankAccount.balance; //will display balance
+	}
+}
+public class ATMMACHINE {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scn = new Scanner(System.in);
+		System.out.print("Hello, What do you want to do today?\n1) Withdraw Money\n2) Deposit Money\n3) Check Balance\nKindly input as 1 , 2 or 3, \nThank you\n Enter your choice: ");
+		int choice = scn.nextInt();
+		if(choice == 1) {
+			System.out.print("Notes available: 100, 200, 500, 2000\nEnter the amount to withdraw: ");
+			int amount = scn.nextInt();
+			withdraw(amount);
+		}else if(choice == 2) {
+			System.out.print("Notes accepted: 100, 200, 500, 2000\nEnter the amount to deposit: ");
+			int amount = scn.nextInt();
+			deposit(amount);
+		}else if(choice == 3) {
+			checkBalance();
+		}
+		scn.close();
+	}
+
+	private static void checkBalance() {
+		// TODO Auto-generated method stub
+		double balance = BankAccount.ATM();
+		System.out.print(balance+"\nThank you for choosing us! Have a nice day");
+	}
+
+	private static void deposit(int amount) {
+		// TODO Auto-generated method stub
+		double balance = BankAccount.ATM();
+		BankAccount.balance = balance + amount;
+		System.out.print("Your updated balance: "+BankAccount.balance+"\nThank you for choosing us! Have a nice day");
+	}
+
+	private static void withdraw(int amount) {
+		// TODO Auto-generated method stub
+		double balance = BankAccount.ATM();
+		if(balance>amount) {
+			BankAccount.balance = balance - amount;
+		    System.out.print("Your updated balance: "+BankAccount.balance+"\nThank you for choosing us! Have a nice day");
+		}else {
+			System.out.print("Your balance is lower than the withdrawal amount.");
+		}
+	}
+}
